@@ -14,7 +14,7 @@ function ClassHash(hash) {
    */
   return function(classnames) {
 
-    let classes = {}
+    var classes = {}
     Object.keys(classnames).forEach(function(key) {
       if (!classnames[key]) return
       if (typeof classnames[key] !== 'string') return classes[key] = key + hash
