@@ -25,7 +25,7 @@ function ClassHash(hash) {
           return str
         }).join(' ')
 
-      if (!~classes[key].indexOf(key)) classes[key] += ' key' + hash
+      if (!~classes[key].indexOf(key)) classes[key] += ' ' + key + hash
     })
 
     return classes
