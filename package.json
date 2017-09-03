@@ -1,0 +1,23 @@
+{
+  "name": "classhash",
+  "description": "add hash automatically to class names",
+  "version": "0.1.0",
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-less": "github:benpptung/eslint-config-less",
+    "eslint-plugin-node": "^5.1.1"
+  },
+  "keywords": [
+    "js"
+  ],
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "mocha test",
+    "eslint": "TIMING=1 eslint . --ignore-pattern node_modules/"
+  },
+  "eslintIgnore": [
+    "public/**/*.*", "trial/**/*.*", "example/**/*.*"
+  ]
+}
