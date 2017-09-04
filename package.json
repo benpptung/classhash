@@ -18,6 +18,6 @@
     "eslint": "TIMING=1 eslint . --ignore-pattern node_modules/"
   },
   "eslintIgnore": [
-    "public/**/*.*", "trial/**/*.*", "example/**/*.*"
+    "trial/**/*.*"
   ]
 }
