@@ -3,7 +3,7 @@
 module.exports = ClassHash
 
 /**
- * Add hash to the class, or simply no hash to disable it 
+ * Add hash to the class, or simply no hash to disable it
  * @param  {string} hash
  * @return {function}
  */
@@ -28,7 +28,7 @@ function ClassHash(hash) {
         Object.defineProperty(classes, key, {
           enumerable: true,
           get: function() {
-            return key + 'hash ' + classnames[key]()
+            return key + hash + ' ' + classnames[key]()
           }
         })
       }
