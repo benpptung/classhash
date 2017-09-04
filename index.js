@@ -3,10 +3,13 @@
 module.exports = ClassHash
 
 /**
+ * Add hash to the class, or simply no hash to disable it 
  * @param  {string} hash
  * @return {function}
  */
 function ClassHash(hash) {
+
+  hash = typeof hash == 'string' && hash ? hash : ''
 
   /**
    * @param  {object} classnames
@@ -16,15 +19,39 @@ function ClassHash(hash) {
 
     var classes = {}
     Object.keys(classnames).forEach(function(key) {
+
+      // ignore null, 0, false, NaN, undefined..
       if (!classnames[key]) return
-      if (typeof classnames[key] !== 'string') return classes[key] = key + hash
 
-      classes[key] = classnames[key].split(/\s+/).filter(Boolean)
-        .map(function(str){
-          if (str == key) return str + hash
-          return str
-        }).join(' ')
+      // if classnames[key] is `function`
+      if (typeof classnames[key] === 'function') {
+        Object.defineProperty(classes, key, {
+          enumerable: true,
+          get: function() {
+            return key + 'hash ' + classnames[key]()
+          }
+        })
+      }
 
+      // if classnames[key] is `string`
+      if (typeof classnames[key] === 'string') {
+        classes[key] = classnames[key].split(/\s+/).filter(Boolean)
+          .map(function(str) { return str === key ? str + hash : str })
+          .join(' ')
+      }
+
+      // if classnames[key] is `array`
+      if (Array.isArray(classnames[key])) {
+        classes[key] = classnames[key]
+          .map(function(str) { return str === key ? str + hash : str})
+          .join(' ')
+      }
+
+      if (typeof classnames[key] == 'number' && !!classnames[key]) {
+        classes[key] = key + hash
+      }
+
+      // must have hashed key as class
       if (!~classes[key].indexOf(key)) classes[key] += ' ' + key + hash
     })
 

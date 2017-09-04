@@ -9,7 +9,12 @@ const classnames = require('classhash')('whatever-hash-here-to-make-class-no-glo
 
 const classes = classnames({
   container: 1,
-  wrapper: 'wrapper ' +  this.props.hasHover
+  wrapper: 'wrapper ' +  this.props.hasHover,
+  date-fa-icon: _=> {
+    return this.state.searching
+      ? 'fa fa-spinner fa-spin fa-fw'
+      : 'fa fa-search fa-fw'
+  }
 })
 
 prototype.render = function() {
@@ -22,3 +27,7 @@ prototype.render = function() {
 }
 
 ```
+
+- create all classes at a time
+- add `hash` to the class name ( only the key name)
+- can use function to generate classname dynamically
