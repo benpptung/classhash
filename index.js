@@ -29,7 +29,7 @@ function ClassHash(hash) {
           enumerable: true,
           get: function() {
 
-            let dyna = classnames[key]()
+            var dyna = classnames[key]()
             dyna = dyna || '' // if undefined or false, ... empty string
             return key + hash + ' ' + dyna
           }
