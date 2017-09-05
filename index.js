@@ -28,7 +28,10 @@ function ClassHash(hash) {
         Object.defineProperty(classes, key, {
           enumerable: true,
           get: function() {
-            return key + hash + ' ' + classnames[key]()
+
+            let dyna = classnames[key]()
+            dyna = dyna || '' // if undefined or false, ... empty string
+            return key + hash + ' ' + dyna
           }
         })
       }
