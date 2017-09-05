@@ -20,8 +20,11 @@ function ClassHash(hash) {
     var classes = {}
     Object.keys(classnames).forEach(function(key) {
 
-      // ignore null, 0, false, NaN, undefined..
-      if (!classnames[key]) return
+      // if null, 0, false, NaN, undefined, no hash
+      if (!classnames[key]) {
+        classes[key] = key
+        return
+      }
 
       // if classnames[key] is `function`
       if (typeof classnames[key] === 'function') {
@@ -55,7 +58,7 @@ function ClassHash(hash) {
       }
 
       // must have hashed key as class
-      if (!~classes[key].indexOf(key)) classes[key] += ' ' + key + hash
+      if (!~classes[key].indexOf(key + hash)) classes[key] += ' ' + key + hash
     })
 
     return classes
