@@ -21,10 +21,10 @@ function ClassHash(hash) {
     Object.keys(classnames).forEach(function(key) {
 
       // if null, 0, false, NaN, undefined, no hash
-      if (!classnames[key]) {
-        classes[key] = key
-        return
-      }
+      // if (!classnames[key]) {
+      //   classes[key] = key
+      //   return
+      // }
 
       // if classnames[key] is `function`
       if (typeof classnames[key] === 'function') {
@@ -53,9 +53,9 @@ function ClassHash(hash) {
           .join(' ')
       }
 
-      if (typeof classnames[key] == 'number' && !!classnames[key]) {
-        classes[key] = key + hash
-      }
+      // if (typeof classnames[key] == 'number' && !!classnames[key]) {
+      //   classes[key] = key + hash
+      // }
 
       // must have hashed key as class
       if (!~classes[key].indexOf(key + hash)) classes[key] += ' ' + key + hash
