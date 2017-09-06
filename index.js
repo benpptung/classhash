@@ -58,6 +58,7 @@ function ClassHash(hash) {
       // }
 
       // must have hashed key as class
+      if (!classes[key]) classes[key] = key + hash
       if (!~classes[key].indexOf(key + hash)) classes[key] += ' ' + key + hash
     })
 
