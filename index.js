@@ -42,6 +42,10 @@ function ClassHash(hash) {
       // if classnames[key] is `string`
       if (typeof classnames[key] === 'string') {
         classes[key] = classnames[key].split(/\s+/).filter(Boolean)
+          .filter(function(str) {
+            // no blacklist str, e.g. undefined, which is usually type conversion
+            return ['undefined'].indexOf(str) < 0
+          })
           .map(function(str) { return str === key ? str + hash : str })
           .join(' ')
       }
