@@ -32,9 +32,10 @@ function ClassHash(hash) {
           enumerable: true,
           get: function() {
 
-            var dyna = classnames[key]()
+            let dyna = classnames[key]()
             dyna = dyna || '' // if undefined or false, ... empty string
-            return key + hash + ' ' + dyna
+            let cls = key + hash + ' ' + dyna
+            return cls.replace(/\bundefined\b/g, '')
           }
         })
       }
@@ -46,14 +47,14 @@ function ClassHash(hash) {
             // no blacklist str, e.g. undefined, which is usually type conversion
             return ['undefined'].indexOf(str) < 0
           })
-          .map(function(str) { return str === key ? str + hash : str })
+          //.map(function(str) { return str === key ? str + hash : str })
           .join(' ')
       }
 
       // if classnames[key] is `array`
       if (Array.isArray(classnames[key])) {
         classes[key] = classnames[key]
-          .map(function(str) { return str === key ? str + hash : str})
+          //.map(function(str) { return str === key ? str + hash : str})
           .join(' ')
       }
 
