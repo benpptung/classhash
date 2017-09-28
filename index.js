@@ -32,9 +32,9 @@ function ClassHash(hash) {
           enumerable: true,
           get: function() {
 
-            let dyna = classnames[key]()
+            var dyna = classnames[key]()
             dyna = dyna || '' // if undefined or false, ... empty string
-            let cls = key + hash + ' ' + dyna
+            var cls = key + hash + ' ' + dyna
             return cls.replace(/\bundefined\b/g, '')
           }
         })
