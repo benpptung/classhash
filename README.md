@@ -8,7 +8,7 @@
 const classnames = require('classhash')('whatever-hash-here-to-make-class-no-global-polute')
 
 const classes = classnames({
-  container: 1,
+  container: this.props.className,  // it can automatically combine class strings
   wrapper: 'wrapper ' +  this.props.hasHover,
   date-fa-icon: _=> {
     return this.state.searching
@@ -19,9 +19,13 @@ const classes = classnames({
 
 prototype.render = function() {
 
+  let c = this.classes
+
   return (
-    <div className={this.classes.container}>
-      <div className={this.classes.wrapper}></div>
+    <div className={c['container']}>
+      <div className={c['wrapper']}>
+        <i className={c['date-fa-icon']} />
+      </div>
     </div>
   )
 }
