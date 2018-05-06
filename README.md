@@ -8,9 +8,15 @@
 const classnames = require('classhash')('whatever-hash-here-to-make-class-no-global-polute')
 
 const classes = classnames({
-  container: this.props.className,  // it can automatically combine class strings
-  wrapper: 'wrapper ' +  this.props.hasHover,
-  date-fa-icon: _=> {
+
+  // it can automatically combine class strings from parent
+  'container': this.props.className,    
+	
+  // add a specific class name
+  'wrapper': 'wrapper ' +  this.props.hasHover,
+  
+  // auto calc the classnames
+  'date-fa-icon': _=> {
     return this.state.searching
       ? 'fa fa-spinner fa-spin fa-fw'
       : 'fa fa-search fa-fw'
@@ -33,5 +39,5 @@ prototype.render = function() {
 ```
 
 - create all classes at a time
-- add `hash` to the class name ( only the key name)
+- add `hash` to the class name ( only the key name), no global polution
 - can use function to generate classname dynamically
