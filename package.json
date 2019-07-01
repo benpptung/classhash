@@ -1,7 +1,7 @@
 {
   "name": "classhash",
   "description": "add hash automatically to class names",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "devDependencies": {
     "eslint": "^4.5.0",
     "eslint-config-less": "github:benpptung/eslint-config-less",
@@ -10,9 +10,8 @@
   "keywords": [
     "js"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "test": "mocha test",
     "eslint": "TIMING=1 eslint . --ignore-pattern node_modules/"
