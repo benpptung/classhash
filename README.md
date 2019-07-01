@@ -50,7 +50,7 @@ prototype.render = function() {
 In the scss file, it might looks like the following, I'm using atom smart templates to generate the scss and class hash automatically
 
 ```
-$h: whatever-hash-here-to-make-class-no-global-polute
+$h: whatever-hash-here-to-make-class-no-global-polute;
 
 .container#{$h} {
 
