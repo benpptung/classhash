@@ -2,21 +2,34 @@
   "name": "classhash",
   "description": "add hash automatically to class names",
   "version": "1.0.0",
-  "devDependencies": {
-    "eslint": "^4.5.0",
-    "eslint-config-less": "github:benpptung/eslint-config-less",
-    "eslint-plugin-node": "^5.1.1"
+  "author": "Ben P.P. Tung",
+  "bugs": {
+    "url": "https://github.com/benpptung/classhash/issues"
   },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-less": "github:benpptung/eslint-config-less",
+    "eslint-plugin-node": "^5.2.1"
+  },
+  "directories": {
+    "example": "example"
+  },
+  "eslintIgnore": [
+    "trial/**/*.*"
+  ],
+  "homepage": "https://github.com/benpptung/classhash#readme",
   "keywords": [
     "js"
   ],
   "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "test": "mocha test",
-    "eslint": "TIMING=1 eslint . --ignore-pattern node_modules/"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benpptung/classhash.git"
   },
-  "eslintIgnore": [
-    "trial/**/*.*"
-  ]
+  "scripts": {
+    "eslint": "TIMING=1 eslint . --ignore-pattern node_modules/",
+    "test": "mocha test"
+  }
 }
